@@ -1,0 +1,41 @@
+ CREATE TABLE [dbo].[Products] (
+    [ProductId]    INT             NOT NULL,
+    [ProductName]  VARCHAR (50)    NOT NULL,
+    [Rate]         DECIMAL (18, 2) NOT NULL,
+    [Description]  VARCHAR (50)    NOT NULL,
+    [CategoryName] VARCHAR (50)    NOT NULL
+);
+
+
+
+
+********************************************************************************
+
+CREATE PROCEDURE [dbo].SelectAllIndex
+	
+AS
+	SELECT * FROM Products;
+RETURN 0
+
+
+*******************************************************************************
+
+CREATE PROCEDURE [dbo].UpdateOneProduct
+	@ProductId int,
+	@ProductName varchar(50),
+	@Rate decimal(18,2),
+	@Description varchar(50),
+	@CategoryName varchar(50)
+AS
+	update Products set 
+	ProductName=@ProductName,Rate=@Rate,Description=@Description,CategoryName=@CategoryName
+	where ProductId=@ProductId;
+RETURN 0
+
+
+
+
+
+
+
+
